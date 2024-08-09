@@ -1,0 +1,48 @@
+#webSocketMessages {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 580px;
+  margin-top: 20px;
+  overflow: auto;
+  max-height: 500px;
+}
+
+#webSocketMessages .remoteMessage {
+  text-align: right;
+  width: 100%;
+  display: inline-block;
+  background: aliceblue;
+  padding: 5px;
+  border-bottom: white solid 1px;
+}
+
+#webSocketMessages .localMessage {
+  text-align: left;
+  width: 100%;
+  display: inline-block;
+  background: cornsilk;
+  padding: 5px;
+  border-bottom: white solid 1px;
+}
+
+#commands {
+  background-color: gray;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 580px;
+  margin-top: 20px;
+  max-height: 500px;
+  color: white;
+}
+
+#messageForm {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 580px;
+  margin: 20px 0px;
+}

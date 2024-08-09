@@ -1,0 +1,13 @@
+[Unit]
+Description=Phone Interface for weddingRing
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/sh /home/pi/weddingRingManager/interface/setup.sh start
+WorkingDirectory=/home/pi/weddingRingManager/interface
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

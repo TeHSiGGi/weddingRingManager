@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeddingRing</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/debug.css">
+</head>
+
+<body>
+  <div class="container">
+    <div><button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰</button></div>
+    <nav class="navigation" id="nav">
+      <ul>
+        <li><a href="/static/index.html">Home</a></li>
+        <li><a href="/static/recordings.html">Recordings</a></li>
+        <li><a href="/static/messages.html">Messages</a></li>
+        <li><a href="/static/configuration.html">Configuration</a></li>
+        <li><a href="/static/debug.html">Debug</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1>Debug</h1>
+      <h2>Send WebSocket message</h2>
+      <p>Send a message to the WebSocket server. The message will be displayed in the message list above.</p>
+      <p>
+        <div class="form-group" id="messageForm">
+          <label for="message">Message:</label>
+          <input type="text" id="message" name="message" required>
+          <input type="submit" id="sendBtn" value="Send" onclick="sendWebSocketMessage()">
+        </div>
+      </p>
+      <p>The following commands are available:</p>
+      <div id="commands">
+        <ul>
+          <li><code>COMMAND:UPDATE_CONFIG</code> - Forces the interface to retrieve the latest config from the server.</li>
+          <li><code>COMMAND:SEND_STATUS</code> - Forces the interface to send its current status.</li>
+          <li><code>COMMAND:DEBUG_ON</code> - Enables debug mode for the interface.</li>
+          <li><code>COMMAND:DEBUG_OFF</code> - Disabled debug mode for the interface.</li>
+          <li><code>COMMAND:START_RECORDING</code> - <b>DEBUG:</b>Will start a recording if the phone is off-hook. Any state changes of the phone are ignored.</li>
+          <li><code>COMMAND:STOP_RECORDING</code> - <b>DEBUG:</b>Will stop the started recording.</li>
+          <li><code>COMMAND:START_PLAYBACK:{id}</code> - <b>DEBUG:</b>Will play the message with the given ID.</li>
+          <li><code>COMMAND:STOP_PLAYBACK</code> - <b>DEBUG:</b>Will delete the message with the given ID.</li>
+          <li><code>COMMAND:RING</code> - Will perform the phone ring action with the configured settings.</li>
+        </ul>
+      </div>
+      <h2>View WebSocket messages</h2>
+      <p>Messages received from the WebSocket server will be displayed here.</p>
+      <div id="webSocketMessages"></div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/websocket.js"></script>
+</body>
+
+</html>

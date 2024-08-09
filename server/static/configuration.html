@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeddingRing</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div>
+      <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰</button>
+    </div>
+    <nav class="navigation" id="nav">
+      <ul>
+        <li><a href="/static/index.html">Home</a></li>
+        <li><a href="/static/recordings.html">Recordings</a></li>
+        <li><a href="/static/messages.html">Messages</a></li>
+        <li><a href="/static/configuration.html">Configuration</a></li>
+        <li><a href="/static/debug.html">Debug</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1>Configuration</h1>
+      <form id="settingsForm">
+        <div class="form-group">
+          <label for="autoRing">Automated Ring:</label>
+          <label for="autoRing" class="description">Enables or disables automated ringing. If enabled, the phone will ring randomly in the configured time boundaries.</label>
+          <label class="switch">
+            <input type="checkbox" id="autoRing" name="autoRing">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="autoRingMinSpan">Automated Ring interval minimum:</label>
+          <label class="description">Minimum time in minutes between two automated rings.</label>
+          <input type="number" id="autoRingMinSpan" name="autoRingMinSpan" min="1" max="60" required>
+        </div>
+        <div class="form-group">
+          <label for="autoRingMaxSpan">Automated Ring interval maximum:</label>
+          <label class="description">Maximum time in minutes between two automated rings.</label>
+          <input type="number" id="autoRingMaxSpan" name="autoRingMaxSpan" min="1" max="240" required>
+        </div>
+        <div class="form-group">
+          <label for="ringCount">Ring count:</label>
+          <label class="description">Amount of rings per trigger.</label>
+          <input type="number" id="ringCount" name="ringCount" min="1" max="10" required>
+        </div>
+        <div class="form-group">
+          <label for="ringOnTime">Ring On Time:</label>
+          <label class="description">Time in seconds the phone will ring.</label>
+          <input type="number" id="ringOnTime" name="ringOnTime" min="1" max="20" required>
+        </div>
+        <div class="form-group">
+          <label for="ringOffTime">Ring Off Time:</label>
+          <label class="description">Time in seconds the phone will be silent.</label>
+          <input type="number" id="ringOffTime" name="ringOffTime" min="1" max="20" required>
+        </div>
+        <div class="form-group">
+          <label for="messages">Messages:</label>
+          <label class="description">Enables or disables messages. If enabled, the phone will play messages upon pickup.</label>
+          <label class="switch">
+            <input type="checkbox" id="messages" name="messages">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="randomMessages">Random Messages:</label>
+          <label class="description">Enables or disables random messages. If enabled, the phone will play random messages upon pickup.</label>
+          <label class="switch">
+            <input type="checkbox" id="randomMessages" name="randomMessages">
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <button type="button" onclick="saveSettings()">Save</button>
+      </form>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      loadSettings();
+    });
+  </script>
+</body>
+
+</html>

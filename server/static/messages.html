@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeddingRing</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/recorder.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/messages.css">
+</head>
+
+<body>
+  <div class="container">
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰</button>
+    <nav class="navigation" id="nav">
+      <ul>
+        <li><a href="/static/index.html">Home</a></li>
+        <li><a href="/static/recordings.html">Recordings</a></li>
+        <li><a href="/static/messages.html">Messages</a></li>
+        <li><a href="/static/configuration.html">Configuration</a></li>
+        <li><a href="/static/debug.html">Debug</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1>Messages</h1>
+      <h2>Record a message</h2>
+      <p>Record a message that will be played back on the phone. You can record the message and listen to it afterwards.<br> If you are happy with the result, you can save it. If you want to re-record a message, you can discard the current one.</p> 
+      <div class="recorder">
+        <div class="controls">
+            <button id="startBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                Start
+            </button>
+            <button id="stopBtn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2" ry="2"></rect></svg>
+                Stop
+            </button>
+            <button id="saveBtn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11.5a2 2 0 0 1 1.41.59l3.5 3.5a2 2 0 0 1 .59 1.41V19a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
+                Save
+            </button>
+            <button id="discardBtn" disabled>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6l-2 14H7L5 6"></path><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M12 6v6"></path></svg>
+                Discard
+            </button>
+            <div class="volume-control">
+                <label for="volumeControl">Volume</label>
+                <input type="range" id="volumeControl" min="0" max="10" step="0.01" value="1">
+            </div>
+        </div>
+        <audio id="playback" controls></audio>
+      </div>
+      <h2>Message list</h2>
+      <p>All recorded messages are listed in here. You can either play them or delete them individually.</p>
+      <div id="messages">
+        <table id="dataTable">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Length (seconds)</th>
+                  <th>Record Date</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Data will be populated here -->
+          </tbody>
+        </table>        
+      </div>
+
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/recorder.js"></script>
+  <script src="js/table.js"></script>
+  <script>
+    getMessagesData();
+  </script>
+</body>
+
+</html>

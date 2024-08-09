@@ -1,0 +1,13 @@
+[Unit]
+Description=Server for weddingRing
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/usr/bin/sh /home/pi/weddingRingManager/server/setup.sh start
+WorkingDirectory=/home/pi/weddingRingManager/server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

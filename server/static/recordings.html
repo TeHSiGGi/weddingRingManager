@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeddingRing</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/table.css">
+  <link rel="stylesheet" href="css/recordings.css">
+</head>
+
+<body>
+  <div class="container">
+    <button class="nav-toggle" id="navToggle" onclick="toggleNav()">☰</button>
+    <nav class="navigation" id="nav">
+      <ul>
+        <li><a href="/static/index.html">Home</a></li>
+        <li><a href="/static/recordings.html">Recordings</a></li>
+        <li><a href="/static/messages.html">Messages</a></li>
+        <li><a href="/static/configuration.html">Configuration</a></li>
+        <li><a href="/static/debug.html">Debug</a></li>
+      </ul>
+    </nav>
+    <div class="content">
+      <h1>Recordings</h1>
+      <p>All recordings can be found here. You can either play them, download them or delete them individually.</p>
+      <p>Click <a href="/records/allBinaries" target="_blank">here</a> to download all of them as a zip file (might take a long time)</p>
+      <div id="recordings">
+        <table id="dataTable">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Length (seconds)</th>
+                  <th>Record Date</th>
+                  <th>Actions</th>
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Data will be populated here -->
+          </tbody>
+        </table>        
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/table.js"></script>
+  <script>
+    getRecordingsData();
+  </script>
+</body>
+
+</html>

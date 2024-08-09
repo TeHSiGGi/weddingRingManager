@@ -1,0 +1,13 @@
+[Unit]
+Description=USB auto mount for weddingRing
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/sh /home/pi/weddingRingManager/system/automount.sh
+WorkingDirectory=/home/pi/weddingRingManager/system
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

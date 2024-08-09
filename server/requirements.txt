@@ -1,0 +1,5 @@
+Flask
+flasgger
+pydub
+flask-sock
+rpi-lgpio
